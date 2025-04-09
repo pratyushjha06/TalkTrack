@@ -1,16 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meeting Assistant</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Meeting Assistant</h1>
-    <button id="fetchData">Fetch Data from Backend</button>
-    <p id="responseText"></p>
-    
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="hamburger" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="logo">
+                <a href="#"><img src="logo.png" alt="Logo"></a>
+                <span class="product-name">TalkTrack</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Plans</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <a href="#" class="login-btn" onclick="openLoginPopup()">Login</a>
+        </div>
+        <ul class="mobile-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Plans</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <a href="#" class="login-btn-mobile" onclick="openLoginPopup()">Login</a>
+    </nav>
+
+    <!-- Login Popup Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginPopup()">&times;</span>
+            <h2>Login</h2>
+            <form action="#" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Bring Your Ideas to Life</h1>
+            <p>Unlock your creativity and turn any idea into a full-length video. Let your imagination take center
+                stage!</p>
+            <a href="#" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="about-heading">About TalkTrack</h2>
+            <p class="about-description">
+                TalkTrack is an AI-powered meeting assistant designed to streamline your meetings. With automatic audio
+                and video recording, real-time transcription, and intelligent summarization, TalkTrack ensures that you
+                never miss important details during any conversation. Whether you’re in a virtual meeting, attending a
+                class, or collaborating with your team, TalkTrack works effortlessly to keep track of everything that
+                matters.
+            </p>
+            <div class="about-grid">
+                <div class="feature">
+                    <h3 class="feature-title">AI-Powered Transcription</h3>
+                    <p class="feature-description">
+                        TalkTrack automatically transcribes speech into text in real-time, so you can focus on the
+                        conversation without worrying about note-taking.
+                    </p>
+                </div>
+                <div class="feature">
+                    <h3 class="feature-title">Smart Summaries</h3>
+                    <p class="feature-description">
+                        Using advanced algorithms, TalkTrack summarizes key points, action items, and decisions, making
+                        it easier to digest meeting outcomes.
+                    </p>
+                </div>
+                <div class="feature">
+                    <h3 class="feature-title">Speaker Identification</h3>
+                    <p class="feature-description">
+                        TalkTrack intelligently identifies and labels speakers, making it easier to understand who said
+                        what during the meeting.
+                    </p>
+                </div>
+                <div class="feature">
+                    <h3 class="feature-title">Seamless Collaboration</h3>
+                    <p class="feature-description">
+                        Share notes, transcripts, and summaries easily with your team for better collaboration and
+                        decision-making.
+                    </p>
+                </div>
+            </div>
+            <a href="#contact" class="cta-button">Get Started with TalkTrack</a>
+        </div>
+    </section>
+
+
+    <section class="pricing-section">
+        <div class="pricing-container">
+            <h2 class="pricing-heading">Choose Your Plan</h2>
+            <p class="pricing-description">Select the plan that best fits your needs. Get started with TalkTrack today
+                and experience a smarter way to manage your meetings!</p>
+
+            <div class="pricing-cards">
+                <!-- Free Plan -->
+                <div class="pricing-card free-plan">
+                    <h3 class="plan-title">Free Plan</h3>
+                    <p class="plan-price">Free</p>
+                    <ul class="plan-features">
+                        <li>🎥 Meeting Recording</li>
+                        <li>📝 Live Transcription</li>
+                        <li>📌 Basic Summarization</li>
+                        <li>🗣️ Speaker Identification</li>
+                        <li>🔍 Searchable Notes</li>
+                    </ul>
+                    <a href="#signup" class="cta-button free-cta">Get Started</a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card premium-plan">
+                    <h3 class="plan-title">Premium Plan</h3>
+                    <p class="plan-price">$29/month</p>
+                    <ul class="plan-features">
+                        <li>🎥 Meeting Recording</li>
+                        <li>📝 Live Transcription</li>
+                        <li>📌 AI-Powered Summarization</li>
+                        <li>🗣️ Advanced Speaker Identification</li>
+                        <li>🔍 Searchable Notes</li>
+                        <li>📅 Calendar Integration</li>
+                        <li>📊 Sentiment Analysis</li>
+                        <li>💻 Multi-Platform Support</li>
+                        <li>🤝 Collaboration & Sharing</li>
+                        <li>📝 Notion & Trello Integration</li>
+                    </ul>
+                    <a href="#signup" class="cta-button premium-cta">Upgrade Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <p>If you have any questions, feel free to reach out. We're here to help!</p>
+                <form action="#" method="POST">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-title">TalkTrack 🎙</h3>
+                <p class="footer-description">Your smart meeting assistant that listens, transcribes, and summarizes
+                    meetings so you can stay focused on the discussion.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#pricing" class="footer-link">Pricing</a></li>
+                    <li><a href="#features" class="footer-link">Features</a></li>
+                    <li><a href="#contact" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-heading">Contact</h4>
+                <ul class="footer-contact">
+                    <li><a href="mailto:support@talktrack.com" class="footer-contact-link">support@talktrack.com</a>
+                    </li>
+                    <li><a href="tel:+1234567890" class="footer-contact-link">+1 (234) 567-890</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-heading">Follow Us</h4>
+                <div class="footer-social">
+                    <a href="https://facebook.com" class="social-icon">FB</a>
+                    <a href="https://twitter.com" class="social-icon">TW</a>
+                    <a href="https://linkedin.com" class="social-icon">LN</a>
+                    <a href="https://instagram.com" class="social-icon">IG</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 TalkTrack. All rights reserved.</p>
+        </div>
+    </footer>
+
+
     <script src="script.js"></script>
 </body>
+
 </html>

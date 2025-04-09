@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Meet Assistant",
+    "version": "1.0",
+    "description": "Adds a custom assistant to Google Meet",
+    "permissions": ["activeTab"],
+    "content_scripts": [
+      {
+        "matches": ["https://meet.google.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  

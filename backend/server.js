@@ -1,27 +1,25 @@
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
-
 const app = express();
-const PORT = 5000;
-
-// Middleware
-app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../frontend/public")));
+app.use(cors());
 
-// Sample API Route
-app.get("/api", (req, res) => {
-    res.json({ message: "Hello, Meeting Assistant is running!" });
+// Store active meetings
+let activeMeetings = [];
+
+app.post("/join-meeting", (req, res) => {
+    const { meetLink, userId } = req.body;
+    if (!meetLink.startsWith("https://meet.google.com/")) {
+        return res.status(400).json({ error: "Invalid meet link" });
+    }
+    
+    activeMeetings.push({ userId, meetLink, timestamp: new Date() });
+    res.json({ message: "Meeting joined successfully!", meetLink });
 });
 
-// Serve Frontend
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/public/index.html"));
+app.get("/active-meetings", (req, res) => {
+    res.json(activeMeetings);
 });
 
-// Start Server
-app.listen(PORT, () => {
-    console.log(`✅ Server running at http://localhost:${PORT}`);
-});
- 
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
